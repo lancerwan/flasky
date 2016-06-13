@@ -1,4 +1,3 @@
-
 import feedparser
 from flask import Flask
 from flask import render_template
@@ -12,9 +11,8 @@ rss_feeds = {"bbc": "http://feeds.bbci.co.uk/news/rss.xml",
 @app.route("/<publication>")
 def get_news(publication="bbc"):
     feed = feedparser.parse(rss_feeds[publication])
-    first_article = feed['entries'][0]
-    return render_template("home.html",article=first_article)
-    #I think that ifI add some explaination I can succed to git commit
+    return render_template("home.html",articles=feed['entries'])
+
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
 
