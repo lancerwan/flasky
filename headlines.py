@@ -3,11 +3,25 @@ from flask import Flask
 
 app = Flask(__name__)
 
-bbc_feed = "http://feeds.bbci.co.uk/news/rss.xml"
+rss_feeds = {"bbc": "http://feeds.bbci.co.uk/news/rss.xml",
+	     "iol": "http://www.iol.co.za/cmlink/1.640"}
 
 @app.route("/")
-def get_news():
-    feed = feedparser.parse(bbc_feed)
+@app.route("/bbc")
+def bbc():
+    return get_news('bbc')
+
+@app.route("/cnn")
+def cnn():
+    return get_news('cnn')
+
+@app.route("/iol")
+def iol():
+    return get_news("iol")
+
+#get_news() must take arguements
+def get_news(publication):
+    feed = feedparser.parse(rss_feeds[publication])
     first_article = feed['entries'][0]
     return """
       <body>
