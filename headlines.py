@@ -7,20 +7,8 @@ rss_feeds = {"bbc": "http://feeds.bbci.co.uk/news/rss.xml",
 	     "iol": "http://www.iol.co.za/cmlink/1.640"}
 
 @app.route("/")
-@app.route("/bbc")
-def bbc():
-    return get_news('bbc')
-
-@app.route("/cnn")
-def cnn():
-    return get_news('cnn')
-
-@app.route("/iol")
-def iol():
-    return get_news("iol")
-
-#get_news() must take arguements
-def get_news(publication):
+@app.route("/<publication>")
+def get_news(publication="bbc"):
     feed = feedparser.parse(rss_feeds[publication])
     first_article = feed['entries'][0]
     return """
