@@ -1,0 +1,10 @@
+# I met much questions by learning write this flasky.I want to keep a record of some valueable to help other.My English is not good,so please understander mine.Thanks!
+
+2016.6.15 night
+Now,I have already completed the basic work,but I'm still in trouble.
+Seen from outside, I added inputs for the user to select currency,but I am disappionted to find that my input had nothing influence to HTML.I don't know.
+In addition, I can't choose city that want to input.
+Temperature display also have some problems.
+I change request.form.get to request.args.get and success to choose my arguements.But this method doesn't work for weather.Then I found that is a question of app_url.
+git push 
+over
