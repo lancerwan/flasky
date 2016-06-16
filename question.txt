@@ -8,3 +8,4 @@ Temperature display also have some problems.
 I change request.form.get to request.args.get and success to choose my arguements.But this method doesn't work for weather.Then I found that is a question of app_url.
 git push 
 over
+now I change git username
